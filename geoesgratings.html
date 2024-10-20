@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta property="og:image" content="https://easonanalytica.github.io/static/images/cover.jpg">
+    <meta name="title" property="og:title" content="Eason Analytica">
+    <meta name="description" content="Eason's AI-powered Analytics Playground">
+    <meta name="keywords" content="AI, Machine Learning, Analytics, Risk">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GeoESGRatings</title>
+    <link href="https://easonanalytica.github.io/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://easonanalytica.github.io/static/css/style.css" rel="stylesheet">
+    <link rel="icon" href="https://easonanalytica.github.io/static/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/globe.gl@2.32.3/dist/globe.gl.min.js"></script>
+  </head>
+
+  <body class = "text-white bg-black">
+    <div>
+      <nav class="navbar navbar-dark bg-black">
+        <div class="container">
+          <a class="navbar-brand logo" href="https://easonanalytica.github.io/">EASON <b class = "aaa">GeoESGRatings </b><b class = "btn btn-sm btn-danger">Demo</b></a>
+        </div>
+      </nav>
+    </div>
+
+    <div id= "cover" class="card border-0">
+      <img class = "img-fluid" src="https://easonanalytica.github.io/static/images/cover.jpg" style = "width: auto; height: 600px; object-fit:cover; opacity: 1">
+      <div class="card-img-overlay">
+        <div class = "marquee text-white">
+          <div id="marqueeContainer"></div>
+        </div>
+        <hr style ="height:200pt; visibility:hidden;">
+        <div class="container">
+          <h2 class = "text-white">Geography ESG Ratings of 213 countries or regions.</h2>
+          <br>
+          <h5><a href = "https://easonanalytica.github.io/static/data/geo_esg_ragings.xml" class = "btn btn-info">RSS Feed ></a></h5>
+          <br>
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class ="container">
+      <div class = "card bg-black border-white text-white mt-0 pt-3 pb-1 ps-3 pe-3 align-middle">
+        <h5 class = "aaa">🌍 What's GeoESGRatings?</h5>
+        <p>The quarterly AI-generated Geo ESG Ratings measure 213 countries or regions in terms of financially relevant factors in Environment, Socioeconomics, and Governance.
+          With a score between 1 (risk) to 9 (opportunity), the ratings range from Risk (<b class = "c">C-</b>, <b class = "cc">C</b>, <b class = "ccc">C+</b>), Neutral (<b class = "b">B-</b>, <b class = "bb">B</b>, <b class = "bbb">B+</b>), to Opportunity (<b class = "a">A-</b>, <b class = "aa">A</b>, <b class = "aaa">A+</b>).
+          The ratings can be used to get a snapshot of the financial health of a country/region or conduct risk & oppotunity exposure analysis in the near term (<b>~ 1 month</b>).
+          The final scores are adjusted based on the influence of other geographies, so in the case of China or US, they both have great influence on the world due to their political & socioeconomic reach, so their score imposes greater impact on the world of ESG.
+        </p>
+      </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+
+    <div>
+      <div id = "worldDataContainer"></div>
+      <div class = "row">
+        <di class = "col">
+          <div class="container" id="backgroundElement">
+            <div id="globeViz"></div>
+          </div>
+        </div>
+
+      <div class = "text-center">
+        <br>
+        <a class = "btn btn-info" href = "data/records/consolidated_04_07_2024.csv" download><i class="fa-solid fa-file-csv"></i> Download Release</a>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class = "container">
+      <h1>💡Spotlight</h1>
+      <br>
+      <div class = "card text-white bg-black">
+        <div class = "row">
+          <div class = "col-lg-4 card bg-black border-0">
+            <img class = "img-fluid" src="https://easonanalytica.github.io/data/latest/imgs/spotlight_1.jpeg" style = "width: auto; height: 300px; object-fit:cover; opacity:1">
+          </div>
+          <div id = "spotlight_1"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class = "card text-white bg-black">
+        <div class = "row">
+          <div class = "col-lg-4 card bg-black border-0">
+            <img class = "img-fluid" src="https://easonanalytica.github.io/data/latest/imgs/spotlight_2.jpeg" style = "width: auto; height: 300px; object-fit:cover; opacity:1">
+          </div>
+          <div id = "spotlight_2"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class = "card text-white bg-black">
+        <div class = "row">
+          <div class = "col-lg-4 card bg-black border-0">
+            <img class = "img" src="https://easonanalytica.github.io/data/latest/imgs/spotlight_3.jpeg" style = "width: auto; height: 300px; object-fit:cover; opacity:1">
+          </div>
+          <div id = "spotlight_3"></div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <div class = "bg-black text-white text-center">
+      <br>
+      <br>
+      <p> Eason Analytica © 2024</p>
+      <br>
+    </div>
+
+    <!-- MEMDO -->
+    <script src="https://easonanalytica.github.io/static/js/bootstrap.min.js"></script>
+    <!-- RATINGS DATA -->
+    <script src="https://unpkg.com/globe.gl"></script>
+    <script>
+      // Start
+      const containerHeight = 500;
+      const colorScale = d3.scaleSequentialSqrt(d3.interpolateYlOrRd);
+      const marqueeContainer = document.getElementById("marqueeContainer");
+      const getVal = feat => feat.properties.SCORE;
+      const container = document.getElementById("worldDataContainer");
+      // Get Marquee
+      fetch('https://raw.githubusercontent.com/easonanalytica/esg-risk-ratings/main/geo-esg-ratings/latest/geodata.geojson')
+        .then(res => res.json())
+        .then(data => {
+          // marqueeContainer -----------------------------
+          const all_values = data["features"];
+          const bold = document.createElement("b");
+          for (const keyvalue of all_values) {
+            const country_name = keyvalue["properties"]["NAME"];
+            const country_rating = keyvalue["properties"]["CREDIT"];
+            const country_style = keyvalue["properties"]["STYLE"];
+            // create the outer span element
+            const span = document.createElement("span");
+            span.textContent = country_name + ": ";
+            // create the inner bold element
+            const bold = document.createElement("b");
+            bold.textContent = country_rating;
+            bold.classList.add(country_style);
+            // append the bold element to the span element
+            span.appendChild(bold);
+            // append the span element to the container div
+            marqueeContainer.appendChild(span);
+          };
+
+          const metadata = data['meta'];
+          const value1 = metadata["world"];
+          const h1 = document.createElement("h1");
+          h1.classList.add("display-1");
+          h1.classList.add("text-center");
+          bold.textContent = value1[0];
+          bold.classList.add(value1[1]);
+          // Append the bold element to the span element
+          h1.appendChild(bold);
+          // Append the span element to the container div
+          container.appendChild(h1);
+          // WORLD part 2
+          const value2 = metadata["date"];
+          const p = document.createElement("p");
+          p.classList.add("text-center");
+          p.textContent = "Latest Release: " + value2;
+          container.appendChild(p);
+          for (const num of ["1", "2", "3"]) {
+              const name = "spotlight_" + num
+              const keyvalue = metadata[name];
+              const container = document.getElementById(name);
+              container.classList.add("col-lg-8");
+              container.classList.add("p-3");
+              // create tags
+              const bre = document.createElement("br");
+              const p1 = document.createElement("p");
+              p1.textContent = keyvalue["country"] + ": " + keyvalue["rating"];
+              p1.classList.add(keyvalue["style"]);
+              const hr = document.createElement("hr");
+              const h3 = document.createElement("h3");
+              h3.textContent = keyvalue["title"];
+              h3.classList.add(keyvalue["style"])
+              const p2 = document.createElement("p");
+              p2.textContent = keyvalue["summary"];
+              container.appendChild(bre);
+              container.appendChild(p1);
+              container.appendChild(hr);
+              container.appendChild(h3);
+              container.appendChild(p2);
+          };
+      });
+      function createGlobeVisualization() {
+        const backgroundElement = document.getElementById('backgroundElement');
+        const containerWidth = backgroundElement.clientWidth;
+        const containerHeight = 500;
+        const colorScale = d3.scaleSequentialSqrt(d3.interpolateRdYlGn);
+        const getVal = feat => feat.properties.SCORE;
+        fetch('https://raw.githubusercontent.com/easonanalytica/esg-risk-ratings/main/geo-esg-ratings/latest/geodata.geojson')
+          .then(res => res.json())
+          .then(data => {
+              const maxVal = Math.max(...data.features.map(getVal));
+              colorScale.domain([1, 9]);
+              const world = Globe()
+                  .width(containerWidth)
+                  .height(containerHeight)
+                  .backgroundColor('#000000')
+                  .globeImageUrl('https://unpkg.com/three-globe@2.31.0/example/img/earth-night.jpg')
+                  .lineHoverPrecision(0)
+                  .polygonsData(data.features)
+                  .polygonAltitude(0.06)
+                  .polygonCapColor(feat => colorScale(getVal(feat)))
+                  .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
+                  .polygonStrokeColor(() => '#111')
+                  .polygonLabel(({ properties: d }) => `
+                    <b style = " background-color: black">${d.NAME}: ${d.CREDIT} (${d.SCORE})</b>
+                  `)
+                  .onPolygonHover(hoverD => world
+                    .polygonAltitude(d => d === hoverD ? 0.12 : 0.06)
+                    .polygonCapColor(d => d === hoverD ? 'steelblue' : colorScale(getVal(d)))
+                  )
+                  .polygonsTransitionDuration(300)
+                (document.getElementById('globeViz'));
+          });
+      }
+      function handleResize() {
+        const globeViz = document.getElementById('globeViz');
+        globeViz.innerHTML = '';
+        createGlobeVisualization();
+      }
+      window.addEventListener('resize', handleResize);
+      createGlobeVisualization();
+    </script>
+
+  </body>
+</html>
